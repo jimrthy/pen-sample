@@ -1,3 +1,9 @@
+pen-sample
+==========
+
+Sample of using the defunct penumbra project, if only because they're tough to find
+
+
 # com.frereth/visuals
 
 Experiment to see if I can get penumbra working with
@@ -55,7 +61,7 @@ TODO
 
 ## Copyright and License
 
-Copyright © 2013 TODO_INSERT_NAME All rights reserved.
+Copyright © 2013 James Gatannah All rights reserved.
 
 The use and distribution terms for this software are covered by the
 [Eclipse Public License 1.0] which can be found in the file
@@ -65,4 +71,5 @@ license. You must not remove this notice, or any other, from this
 software.
 
 [Eclipse Public License 1.0]: http://opensource.org/licenses/eclipse-1.0.php
+
 

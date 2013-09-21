@@ -1,7 +1,9 @@
+<<<<<<< HEAD
 /target
 /lib
 /classes
 /checkouts
+/targets
 pom.xml
 pom.xml.asc
 *.jar
@@ -12,3 +14,4 @@ pom.xml.asc
 .lein-repl-history
 .lein-git-deps
 *~
+
