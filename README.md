@@ -1,6 +1,18 @@
 # com.frereth/visuals
 
-TODO: Brief description
+Experiment to see if I can get penumbra working with
+a github dependency instead of pulling from clojars.
+
+## Notes
+
+Use lein git-deps to pull my branch of penumbra from github.
+
+Then, in the .lein-git-deps/penumbra directory, run lein javac.
+
+That should generate some .class files under
+.lein-git-deps/penumbra/target/classes.
+
+Copy them into the project-root/target/classes directory, recursively.
 
 
 

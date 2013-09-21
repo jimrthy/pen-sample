@@ -14,7 +14,7 @@
   ;; run lein git-deps to actually download this!
   :git-dependencies [["git@github.com:jimrthy/penumbra.git"]]
   :source-paths ["src" ".lein-git-deps/penumbra/src/"]
-  :java-source-paths [[".lein-git-deps/penumbra/java/"]]
+  :java-source-paths [".lein-git-deps/penumbra/java/"]
   :plugins [[lein-git-deps "0.0.1-SNAPSHOT"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]]
                    :source-paths ["dev"]}}
