@@ -24,32 +24,15 @@ Copy them into the project-root/target/classes directory, recursively.
 
 ## Releases and Dependency Information
 
-* Releases are published to TODO_LINK
-
-* Latest stable release is TODO_LINK
-
-* All released versions TODO_LINK
-
-[Leiningen] dependency information:
-
-    [com.frereth/visuals "0.1.0-SNAPSHOT"]
-
-[Maven] dependency information:
-
-    <dependency>
-      <groupId>com.frereth</groupId>
-      <artifactId>visuals</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
-    </dependency>
 
 [Leiningen]: http://leiningen.org/
 [Maven]: http://maven.apache.org/
 
 
-
 ## Usage
 
-TODO
+Don't. This isn't even alpha quality, and it's based around an
+obsolete API that's no longer supported.
 
 
 
