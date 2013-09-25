@@ -18,4 +18,4 @@
   :plugins [[lein-git-deps "0.0.1-SNAPSHOT"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]]
                    :source-paths ["dev"]}}
-  :main com.frereth.visuals/main)
+  :main com.frereth.visuals)

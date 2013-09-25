@@ -49,4 +49,7 @@
   "Stops the system, reloads modified source files, and restarts it."
   []
   (stop)
+  ;; Calling refresh causes the JVM to exit with a coredump
+  ;; and what looks like a totally corrupted stack.
+  ;; That's nasty.
   (refresh :after 'user/go))
