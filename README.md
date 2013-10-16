@@ -6,21 +6,25 @@ Sample of using the defunct penumbra project, if only because they're tough to f
 
 # com.frereth/visuals
 
-Experiment to see if I can get penumbra working with
-a github dependency instead of pulling from clojars.
+Trying to wrap my head around the way penumbra work(s/ed).
 
 ## Notes
 
-Use lein git-deps to pull my branch of penumbra from github.
+For resizable windows, see:
 
-Then, in the .lein-git-deps/penumbra directory, run lein javac.
+http://stackoverflow.com/questions/5206775/how-do-i-make-an-lwjgl-window-resizable
 
-That should generate some .class files under
-.lein-git-deps/penumbra/target/classes.
+which, ultimately, amounts to "Start with an AWT Frame and use
+Display.setParent(Canvas) to stick the LWJGL content on it to get
+a resizable window" with
 
-Copy them into the project-root/target/classes directory, recursively.
+http://hg.l33tlabs.org/twlthemeeditor/file/tip/src/de/matthiasmann/twlthemeeditor/Main.java
 
+as an example (TODO: yes, I need to learn how to use Markdown's link
+syntax).
 
+More recently, though, LWJGL has added the ability to make the Display resizable
+like a real grown-up window.
 
 ## Releases and Dependency Information
 
@@ -34,7 +38,18 @@ Copy them into the project-root/target/classes directory, recursively.
 Don't. This isn't even alpha quality, and it's based around an
 obsolete API that's no longer supported.
 
+This really isn't suitable for anyone to be using.
 
+In case you *still* aren't discouraged:
+
+Get a reasonably modern copy of penumbra somewhere. You might update
+project.clj to refer to one that's been deployed to clojars. Or
+maybe get one from github and do `lein install` to get it into
+your local repository cache. Then change project.clj to rely
+on whatever credentials you gave it.
+
+Odds are, it still won't work (it doesn't for me). Consider yourself
+warned.
 
 ## Change Log
 
