@@ -21,6 +21,7 @@
     :rot-y (+ (:rot-y state) dx)))
 
 (defn update [[delta time] state]
+  (println "Updating")
   (update-in state [:rot-y]
              #(rem (+ % (* 90 delta)) 360)))
 
@@ -45,8 +46,9 @@
     (draw-lines (vertex 0 0) (vertex 0 1)))))
 
 (defn display [[delta time] state]
+  (println "Drawing")
   ;; It seems like a very interesting tidbit that this next call..
-  (draw-clock (/ time 3600) (/ time 60) time)
+  (comment) (draw-clock (/ time 3600) (/ time 60) time)
 
   ;; ...keeps this triangle from being drawn
   (translate 0 -0.93 -3)

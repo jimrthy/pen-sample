@@ -3,25 +3,44 @@
             [penumbra.app :as app]
             [com.frereth.pen-sample.tutorial :as tut]))
 
+(defn init [state]
+  (println "Initialized")
+  ;; Don't want to do this
+  (gl/frustum-view 60.0 (/ (double 4) 3) 1.0 100.0)
+  (gl/load-identity)  
+
+  state)
+
 (defn reshape [[x y w h] state]
-  (comment (gl/frustum-view 60.0 (/ (double w) h) 1.0 100.0)
-           (gl/load-identity)))
+  (println "Reshaping to: " x y w h)
+  ;; Frustrating. This is never happening. What gives?
+  (throw (RuntimeException. "Got here!"))
+  (comment
+    (gl/frustum-view 60.0 (/ (double w) h) 1.0 100.0)
+    (gl/load-identity))
+  (let [aspect (/ (float w) h)
+        height (if (> 1 aspect) (/ 1.0 aspect) 1)
+        aspect (max 1 aspect)]
+    (gl/ortho-view (- aspect) aspect (- height) height -1 1)
+    state))
 
 (defn update [[delta time] state]
   (into state {:frame-count (inc (:frame-count state))}))
 
 (defn display [[delta time] state]
   (let [frame (:frame-count state)]
-    (println "Draw Frame" frame)
+    (comment (println "Draw Frame" frame))
     (gl/translate 0 -0.93 -3)
     (gl/draw-triangles
      (gl/color 1 0 0) (gl/vertex 1 0)
      (gl/color 0 1 0) (gl/vertex -1 0)
-     (gl/color 0 0 1) (gl/vertex 0 1.86))))
+     (gl/color 0 0 1) (gl/vertex 0 1.86)))
+
+  (app/repaint!))
 
 (defn -main []
   (app/start
-   {:display display :reshape reshape :update update}
+   {:display display :reshape reshape :update update :init init}
    {:frame-count 0}))
 
 
