@@ -1,7 +1,6 @@
 (ns com.frereth.visuals
   (:require [penumbra.opengl :as gl]
-            [penumbra.app :as app]
-            [com.frereth.pen-sample.tutorial :as tut]))
+            [penumbra.app :as app]))
 
 (defn init [state]
   (println "Initialized")
@@ -41,6 +40,11 @@
 (defn -main []
   (app/start
    {:display display :reshape reshape :update update :init init}
-   {:frame-count 0}))
+   ;; TODO: It looks like the State I'm passing in needs to be
+   ;; an Atom.
+   ;; Which seems horribly wrong.
+   ;; penumbra.app converts this to an atom in its create function.
+   ;; I have to assume that there was a good reason for this decision.
+   {:frame-count 0 :fluid true}))
 
 
