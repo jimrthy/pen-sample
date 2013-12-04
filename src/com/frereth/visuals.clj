@@ -11,16 +11,26 @@
   state)
 
 (defn reshape [[x y w h] state]
-  (println "Reshaping to: " x y w h)
-  ;; Frustrating. This is never happening. What gives?
-  (throw (RuntimeException. "Got here!"))
+  (comment (println "Reshaping to: " x y w h))
+  ;; Frustrating. This is never happening. 
+  ;; Q: What gives?
+  ;; A: It looks like the original was planning on full screen
+  ;; mode. It only registered a resize when the actual display
+  ;; mode changed.
+  (comment (throw (RuntimeException. "Got here!")))
   (comment
     (gl/frustum-view 60.0 (/ (double w) h) 1.0 100.0)
     (gl/load-identity))
   (let [aspect (/ (float w) h)
         height (if (> 1 aspect) (/ 1.0 aspect) 1)
         aspect (max 1 aspect)]
-    (gl/ortho-view (- aspect) aspect (- height) height -1 1)
+    ;; And, after all that, I didn't need to do anything at all.
+    ;; The library code handles setting the viewport, which is
+    ;; all that I'm actually interested in changing.
+    ;; So, for this example, this function can totally be a no-op.
+    (comment (println "Setting up ortho view: " aspect height))
+    (comment (gl/ortho-view (- aspect) aspect (- height) height -1 1))
+    (comment (gl/ortho-view (- aspect) aspect -1.0 1.0 -1.0 1.0))
     state))
 
 (defn update [[delta time] state]
@@ -38,6 +48,7 @@
   (app/repaint!))
 
 (defn -main []
+  (println "visuals.-main")
   (app/start
    {:display display :reshape reshape :update update :init init}
    ;; TODO: It looks like the State I'm passing in needs to be
