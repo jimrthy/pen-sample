@@ -14,6 +14,9 @@
                  [org.clojure/clojure "1.5.1"]
                  [slick-util "1.0.0"]]
 
+  ;; I suspect that I may want this next option.
+  ;; TODO: What does it actually mean?
+  :pedantic? :abort
   ;; Important:
   ;; run lein git-deps to actually download this!
   ;;:git-dependencies [["git@github.com:jimrthy/penumbra.git"]]
@@ -22,4 +25,5 @@
   ;;:plugins [[lein-git-deps "0.0.1-SNAPSHOT"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]]
                    :source-paths ["dev"]}}
+  :repl-options {:init-ns user}
   :main com.frereth.visuals)
